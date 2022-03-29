@@ -111,5 +111,5 @@ def k_pod(data, n_clusters,max_iter=300,tol=0):
     # return assignments and centroids
     cluster_ret = {"ClusterAssignment" : cluster_assignment, "ClusterCenters" : cluster_centers}
     
-    cluster_return  = (cluster_assignment, cluster_centers)
+    cluster_return  = (cluster_assignment, cluster_centers,filled_data)
     return cluster_return

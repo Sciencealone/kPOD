@@ -3,3 +3,5 @@ __pycache__
 examples/__pycache__
 main/__pycache__
 utils/__pycache__
+
+.DS_Store
