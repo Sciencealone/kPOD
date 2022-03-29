@@ -14,7 +14,7 @@ from ..utils.utils import (
     __move_centroids
 )
 
-def k_pod(data, n_clusters,max_iter=300,tol=0):
+def k_pod(data, n_clusters,max_iter=300,tol=0,random_state=0):
     """ Compute cluster centers and predict cluster index for sample containing missing data.
 
     Parameters
@@ -30,6 +30,9 @@ def k_pod(data, n_clusters,max_iter=300,tol=0):
 
     tol: float
         Tolerance level for movement in cluster centroids, default 0.
+
+    random_state: int
+        Random seed for centroid initialization
 
     Returns 
     -------
@@ -79,7 +82,7 @@ def k_pod(data, n_clusters,max_iter=300,tol=0):
             filled_data = np.array(data_frame.fillna(nanmean(data)))
 
             # initialize cluster centers so other methods work properly
-            cluster_centers = __initialize(filled_data, K)
+            cluster_centers = __initialize(filled_data, K, random_state)
         
         """
         STEP 2: K-Means Iteration

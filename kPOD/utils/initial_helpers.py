@@ -24,7 +24,7 @@ def __euclidean_distance(point_1, point_2):
     """
     return np.sum((point_1 - point_2)**2)
 
-def __initialize(data, n_clusters):
+def __initialize(data, n_clusters,random_state):
     """ Initialize cluster centers using k-means++ algorithm.
 
     Parameters
@@ -46,6 +46,7 @@ def __initialize(data, n_clusters):
 
     # initialize the centroids list and add a randomly selected data point to the list
     centroids = []
+    np.random.seed(random_state) # set seed
     centroids.append(data[np.random.randint(N), :])
 
     # compute remaining k - 1 centroids
